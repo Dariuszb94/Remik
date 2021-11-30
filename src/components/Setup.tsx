@@ -1,11 +1,14 @@
 import React, { FC, useState } from "react";
 import range from "lodash/range";
+import _uniqueId from "lodash/uniqueId";
+
 type Props = {
   startSet: React.Dispatch<React.SetStateAction<boolean>>;
   playersSet: React.Dispatch<React.SetStateAction<String[]>>;
 };
 const Setup: FC<Props> = ({ startSet, playersSet }) => {
   const [playersCount, playersCountSet] = useState(0);
+
   return (
     <>
       Ile graczy?
@@ -17,8 +20,11 @@ const Setup: FC<Props> = ({ startSet, playersSet }) => {
         <button onClick={() => playersCountSet((prev) => prev + 1)}>+</button>
       </div>
       {range(playersCount).map((el) => {
+        const id = _uniqueId("prefix-");
+
         return (
           <input
+            key={id}
             type="text"
             onChange={(e) =>
               playersSet((prevArr) => {
