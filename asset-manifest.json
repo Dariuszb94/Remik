@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Remik/static/css/main.4a4137e4.chunk.css",
+    "main.js": "/Remik/static/js/main.90e7017f.chunk.js",
+    "main.js.map": "/Remik/static/js/main.90e7017f.chunk.js.map",
+    "runtime-main.js": "/Remik/static/js/runtime-main.ec2a90a7.js",
+    "runtime-main.js.map": "/Remik/static/js/runtime-main.ec2a90a7.js.map",
+    "static/js/2.b149dbe8.chunk.js": "/Remik/static/js/2.b149dbe8.chunk.js",
+    "static/js/2.b149dbe8.chunk.js.map": "/Remik/static/js/2.b149dbe8.chunk.js.map",
+    "index.html": "/Remik/index.html",
+    "static/css/main.4a4137e4.chunk.css.map": "/Remik/static/css/main.4a4137e4.chunk.css.map",
+    "static/js/2.b149dbe8.chunk.js.LICENSE.txt": "/Remik/static/js/2.b149dbe8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec2a90a7.js",
+    "static/js/2.b149dbe8.chunk.js",
+    "static/css/main.4a4137e4.chunk.css",
+    "static/js/main.90e7017f.chunk.js"
+  ]
+}
