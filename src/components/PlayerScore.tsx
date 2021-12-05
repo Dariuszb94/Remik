@@ -1,4 +1,6 @@
 import React, { FC, useState } from "react";
+import styled from "styled-components";
+
 type Props = {
   player: string;
 };
@@ -20,7 +22,7 @@ const PlayerScore: FC<Props> = ({ player }) => {
       })}
       {sum}
       <form onSubmit={handleSubmit}>
-        <input
+        <Input
           type="number"
           onChange={(e) => scoreSet(Number(e.target.value))}
           value={score}
@@ -32,3 +34,6 @@ const PlayerScore: FC<Props> = ({ player }) => {
 };
 
 export default PlayerScore;
+const Input = styled.input`
+  max-width: 60px;
+`;
