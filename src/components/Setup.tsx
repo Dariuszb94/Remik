@@ -1,12 +1,12 @@
-import React, { FC, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import range from "lodash/range";
-import _uniqueId from "lodash/uniqueId";
 
 type Props = {
   startSet: React.Dispatch<React.SetStateAction<boolean>>;
-  playersSet: React.Dispatch<React.SetStateAction<String[]>>;
+  playersSet: React.Dispatch<React.SetStateAction<string[]>>;
+  players: string[];
 };
-const Setup: FC<Props> = ({ startSet, playersSet }) => {
+const Setup: FC<Props> = ({ startSet, playersSet, players }) => {
   const [playersCount, playersCountSet] = useState(0);
 
   return (
@@ -19,12 +19,10 @@ const Setup: FC<Props> = ({ startSet, playersSet }) => {
         {playersCount}
         <button onClick={() => playersCountSet((prev) => prev + 1)}>+</button>
       </div>
-      {range(playersCount).map((el) => {
-        const id = _uniqueId("prefix-");
-
+      {range(playersCount).map((el, i) => {
         return (
           <input
-            key={id}
+            key={i}
             type="text"
             onChange={(e) =>
               playersSet((prevArr) => {
