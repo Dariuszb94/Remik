@@ -18,7 +18,12 @@ const PlayerScore: FC<Props> = ({ player }) => {
     <div>
       {player}
       {scores.map((el) => {
-        return <div>{el}</div>;
+        return (
+          <>
+            <div>{el}</div>
+            <button>Usuń</button>
+          </>
+        );
       })}
       {sum}
       <form onSubmit={handleSubmit}>
