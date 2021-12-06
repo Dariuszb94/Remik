@@ -13,19 +13,22 @@ const PlayerScore: FC<Props> = ({ player }) => {
     scoreSet(0);
   };
   const sum = scores.reduce((a, b) => a + b, 0);
-
+  const deleteScore = (i: number) => {
+    scoresSet((prev) => prev.filter((el, index) => i != index));
+    console.log(scores[i]);
+  };
   return (
     <div>
       {player}
-      {scores.map((el) => {
+      {scores.map((el, i) => {
         return (
-          <>
-            <div>{el}</div>
-            <button>Usuń</button>
-          </>
+          <FlexRow>
+            <Score>{el}</Score>
+            <button onClick={() => deleteScore(i)}>Usuń</button>
+          </FlexRow>
         );
       })}
-      {sum}
+      <div>Suma: {sum}</div>
       <form onSubmit={handleSubmit}>
         <Input
           type="number"
@@ -41,4 +44,10 @@ const PlayerScore: FC<Props> = ({ player }) => {
 export default PlayerScore;
 const Input = styled.input`
   max-width: 60px;
+`;
+const FlexRow = styled.div`
+  display: flex;
+`;
+const Score = styled.div`
+  margin-right: 4px;
 `;
