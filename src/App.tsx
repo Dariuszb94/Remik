@@ -41,4 +41,5 @@ const Container = styled.div`
 `;
 const Row = styled.div`
   display: flex;
+  align-items: center;
 `;
