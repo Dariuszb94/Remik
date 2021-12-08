@@ -1,5 +1,7 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
+import { Button } from "./Setup";
+import { Text } from "./Setup";
 
 type Props = {
   player: string;
@@ -15,28 +17,29 @@ const PlayerScore: FC<Props> = ({ player }) => {
   const sum = scores.reduce((a, b) => a + b, 0);
   const deleteScore = (i: number) => {
     scoresSet((prev) => prev.filter((el, index) => i != index));
-    console.log(scores[i]);
   };
   return (
     <div>
-      {player}
+      <Text>
+        <b>{player}</b>
+      </Text>
       {scores.map((el, i) => {
         return (
           <FlexRow>
             <Score>{el}</Score>
-            <button onClick={() => deleteScore(i)}>Usuń</button>
+            <SmallButton onClick={() => deleteScore(i)}>Usuń</SmallButton>
           </FlexRow>
         );
       })}
-      <div>Suma: {sum}</div>
-      <form onSubmit={handleSubmit}>
+      <Text>Suma: {sum}</Text>
+      <SubmitContainer onSubmit={handleSubmit}>
         <Input
           type="number"
           onChange={(e) => scoreSet(Number(e.target.value))}
           value={score}
         />
-        <button type="submit">Dodaj</button>
-      </form>
+        <SmallButton type="submit">Dodaj</SmallButton>
+      </SubmitContainer>
     </div>
   );
 };
@@ -44,10 +47,39 @@ const PlayerScore: FC<Props> = ({ player }) => {
 export default PlayerScore;
 const Input = styled.input`
   max-width: 60px;
+  border: none;
+  outline: none;
+  box-shadow: rgb(55 71 79 / 20%) 0px 0px 2px, rgb(0 0 0 / 10%) 0px 8px 12px;
+  font-size: 20px;
+  padding: 4px;
+  margin-right: 8px;
 `;
 const FlexRow = styled.div`
   display: flex;
+  align-items: center;
+  margin: 4px 0;
+  justify-content: center;
 `;
 const Score = styled.div`
   margin-right: 4px;
+  font-size: 20px;
+`;
+const SmallButton = styled.button`
+  border: none;
+  outline: none;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(74, 74, 74);
+  font-weight: 400;
+  box-shadow: rgb(55 71 79 / 20%) 0px 0px 2px, rgb(0 0 0 / 10%) 0px 8px 12px;
+  max-width: 200px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  padding: 8px;
+`;
+const SubmitContainer = styled.form`
+  display: flex;
+  margin-top: 8px;
 `;

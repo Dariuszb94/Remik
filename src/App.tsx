@@ -13,7 +13,6 @@ function App() {
       {!start && (
         <Setup startSet={startSet} playersSet={playersSet} players={players} />
       )}
-      {console.log(start)}
       {start && (
         <Row>
           {players.map((player) => {
