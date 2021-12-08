@@ -19,7 +19,7 @@ const PlayerScore: FC<Props> = ({ player }) => {
     scoresSet((prev) => prev.filter((el, index) => i != index));
   };
   return (
-    <div>
+    <Container>
       <Text>
         <b>{player}</b>
       </Text>
@@ -38,20 +38,20 @@ const PlayerScore: FC<Props> = ({ player }) => {
           onChange={(e) => scoreSet(Number(e.target.value))}
           value={score}
         />
-        <SmallButton type="submit">Dodaj</SmallButton>
+        <SmallButton type="submit">+</SmallButton>
       </SubmitContainer>
-    </div>
+    </Container>
   );
 };
 
 export default PlayerScore;
 const Input = styled.input`
-  max-width: 60px;
+  max-width: 38px;
   border: none;
   outline: none;
   box-shadow: rgb(55 71 79 / 20%) 0px 0px 2px, rgb(0 0 0 / 10%) 0px 8px 12px;
   font-size: 20px;
-  padding: 4px;
+  padding: 2px;
   margin-right: 8px;
 `;
 const FlexRow = styled.div`
@@ -77,9 +77,14 @@ const SmallButton = styled.button`
   max-width: 200px;
   background-color: rgb(255, 255, 255);
   border-radius: 4px;
-  padding: 8px;
+  padding: 4px;
 `;
 const SubmitContainer = styled.form`
   display: flex;
+  align-items: center;
   margin-top: 8px;
+`;
+
+const Container = styled.section`
+  margin: 0 4px;
 `;

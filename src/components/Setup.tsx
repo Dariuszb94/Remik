@@ -53,10 +53,12 @@ export const Button = styled.button`
   background-color: rgb(255, 255, 255);
   border-radius: 4px;
   padding: 14px 16px;
+  margin: 0 4px;
 `;
 export const Text = styled.div`
-  font-size: 24px;
-  margin: 0 8px;
+  font-size: 18px;
+  margin: 0 4px;
+  white-space: pre;
   text-align: center;
 `;
 const Container = styled.div`
