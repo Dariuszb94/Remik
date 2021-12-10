@@ -1,6 +1,5 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
-import { Button } from "./Setup";
 import { Text } from "./Setup";
 
 type Props = {
