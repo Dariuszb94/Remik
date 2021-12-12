@@ -5,11 +5,17 @@ import styled from "styled-components";
 type Props = {
   startSet: React.Dispatch<React.SetStateAction<boolean>>;
   playersSet: React.Dispatch<React.SetStateAction<string[]>>;
+  playersCountSet: React.Dispatch<React.SetStateAction<number>>;
+  playersCount: number;
   players: string[];
 };
-const Setup: FC<Props> = ({ startSet, playersSet, players }) => {
-  const [playersCount, playersCountSet] = useState(0);
-
+const Setup: FC<Props> = ({
+  startSet,
+  playersSet,
+  playersCountSet,
+  playersCount,
+  players,
+}) => {
   return (
     <>
       <Text>Ile graczy?</Text>

@@ -4,8 +4,9 @@ import { Text } from "./Setup";
 
 type Props = {
   player: string;
+  playersCount: number;
 };
-const PlayerScore: FC<Props> = ({ player }) => {
+const PlayerScore: FC<Props> = ({ player, playersCount }) => {
   const [scores, scoresSet] = useState<number[]>([]);
   const [score, scoreSet] = useState(0);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,21 +16,23 @@ const PlayerScore: FC<Props> = ({ player }) => {
   };
   const sum = scores.reduce((a, b) => a + b, 0);
   const deleteScore = (i: number) => {
-    scoresSet((prev) => prev.filter((el, index) => i != index));
+    scoresSet((prev) => prev.filter((el, index) => i !== index));
   };
   return (
     <Container>
       <Text>
         <b>{player}</b>
       </Text>
-      {scores.map((el, i) => {
-        return (
-          <FlexRow>
-            <Score>{el}</Score>
-            <SmallButton onClick={() => deleteScore(i)}>Usuń</SmallButton>
-          </FlexRow>
-        );
-      })}
+      <ul>
+        {scores.map((el, i) => {
+          return (
+            <FlexRow playersCount={playersCount}>
+              <Score>{el}</Score>
+              <SmallButton onClick={() => deleteScore(i)}>Usuń</SmallButton>
+            </FlexRow>
+          );
+        })}
+      </ul>
       <Text>Suma: {sum}</Text>
       <SubmitContainer onSubmit={handleSubmit}>
         <Input
@@ -53,11 +56,14 @@ const Input = styled.input`
   padding: 2px;
   margin-right: 8px;
 `;
-const FlexRow = styled.div`
+const FlexRow = styled.div<{ playersCount: number }>`
   display: flex;
   align-items: center;
   margin: 4px 0;
   justify-content: center;
+  &:nth-child(${({ playersCount }) => playersCount}n+1) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
 `;
 const Score = styled.div`
   margin-right: 4px;

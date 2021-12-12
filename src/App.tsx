@@ -7,11 +7,18 @@ import PlayerScore from "./components/PlayerScore";
 function App() {
   const [start, startSet] = useState(false);
   const [players, playersSet] = useState<string[]>([]);
+  const [playersCount, playersCountSet] = useState(0);
 
   return (
     <Container>
       {!start && (
-        <Setup startSet={startSet} playersSet={playersSet} players={players} />
+        <Setup
+          startSet={startSet}
+          playersSet={playersSet}
+          players={players}
+          playersCountSet={playersCountSet}
+          playersCount={playersCount}
+        />
       )}
       {start && (
         <Row>
@@ -20,7 +27,7 @@ function App() {
 
             return (
               <div key={id}>
-                <PlayerScore player={player} />
+                <PlayerScore player={player} playersCount={playersCount} />
               </div>
             );
           })}
