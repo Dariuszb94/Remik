@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import Setup from "./components/Setup";
 import _uniqueId from "lodash/uniqueId";
