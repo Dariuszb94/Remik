@@ -7,9 +7,9 @@ class TutorialDataService {
     return db;
   }
 
-  update(key: string, value: any) {
-    return db.child(key).update(value);
-  }
+  // update(key: string, value: any) {
+  //   return db.child(key).update(value);
+  // }
 
   delete(key: string) {
     return db.child(key).remove();
