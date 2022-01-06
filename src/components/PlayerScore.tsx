@@ -101,8 +101,10 @@ const Input = styled.input`
   outline: none;
   box-shadow: rgb(55 71 79 / 20%) 0px 0px 2px, rgb(0 0 0 / 10%) 0px 8px 12px;
   font-size: 20px;
-  padding: 2px;
   margin-right: 8px;
+  border-radius: 4px;
+  text-align: center;
+  padding: 7px;
 `;
 const Scores = styled.ul`
   margin: 4px 0;
@@ -130,7 +132,7 @@ const SmallButton = styled.button`
   max-width: 200px;
   background-color: rgb(255, 255, 255);
   border-radius: 4px;
-  padding: 4px;
+  padding: 8px;
 `;
 const MediumButton = styled.button`
   border: none;
@@ -145,8 +147,8 @@ const MediumButton = styled.button`
   max-width: 200px;
   background-color: rgb(255, 255, 255);
   border-radius: 4px;
-  padding: 4px;
-  margin-bottom: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
 `;
 const SubmitContainer = styled.form`
   display: flex;
