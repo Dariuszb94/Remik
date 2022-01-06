@@ -48,9 +48,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 24px;
+  margin-top: 16px;
 `;
 const Row = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 `;

@@ -62,14 +62,14 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
 
   return (
     <Container>
-      <button onClick={getData}>Get data</button>
+      <SmallButton onClick={getData}>Pobierz</SmallButton>
       <Text>
         <b>
           {player}
           {scores.length % playersCount === index ? '*' : null}
         </b>
       </Text>
-      <ul>
+      <Scores>
         {scores.map((el, i) => {
           return (
             <FlexRow playersCount={playersCount}>
@@ -78,7 +78,7 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
             </FlexRow>
           );
         })}
-      </ul>
+      </Scores>
       <Text>Suma: {sum}</Text>
       <SubmitContainer onSubmit={handleSubmit}>
         <Input
@@ -102,14 +102,14 @@ const Input = styled.input`
   padding: 2px;
   margin-right: 8px;
 `;
+const Scores = styled.ul`
+  margin: 4px 0;
+`;
 const FlexRow = styled.div<{ playersCount: number }>`
   display: flex;
   align-items: center;
   margin: 4px 0;
   justify-content: center;
-  /* &:nth-child(${({ playersCount }) => playersCount}n+1) {
-    background-color: rgba(0, 0, 0, 0.05);
-  } */
 `;
 const Score = styled.div`
   margin-right: 4px;
@@ -129,6 +129,7 @@ const SmallButton = styled.button`
   background-color: rgb(255, 255, 255);
   border-radius: 4px;
   padding: 4px;
+  margin-bottom: 4px;
 `;
 const SubmitContainer = styled.form`
   display: flex;
@@ -138,4 +139,7 @@ const SubmitContainer = styled.form`
 
 const Container = styled.section`
   margin: 0 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
