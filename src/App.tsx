@@ -1,8 +1,8 @@
-import { useState } from "react";
-import styled from "styled-components";
-import Setup from "./components/Setup";
-import _uniqueId from "lodash/uniqueId";
-import PlayerScore from "./components/PlayerScore";
+import { useState } from 'react';
+import styled from 'styled-components';
+import Setup from './components/Setup';
+import _uniqueId from 'lodash/uniqueId';
+import PlayerScore from './components/PlayerScore';
 
 function App() {
   const [start, startSet] = useState(false);
@@ -22,12 +22,16 @@ function App() {
       )}
       {start && (
         <Row>
-          {players.map((player) => {
-            const id = _uniqueId("prefix-");
+          {players.map((player, index) => {
+            const id = _uniqueId('prefix-');
 
             return (
               <div key={id}>
-                <PlayerScore player={player} playersCount={playersCount} />
+                <PlayerScore
+                  player={player}
+                  playersCount={playersCount}
+                  index={index}
+                />
               </div>
             );
           })}
