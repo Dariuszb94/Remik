@@ -1,6 +1,9 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Text } from './Setup';
+import db from '../firebase';
+import firebase from 'firebase';
+import { setTextRange } from 'typescript';
 
 type Props = {
   player: string;
@@ -10,17 +13,58 @@ type Props = {
 const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
   const [scores, scoresSet] = useState<number[]>([]);
   const [score, scoreSet] = useState(0);
+  const [rawDataFromDb, rawDataFromDbSet] = useState<any>([]);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     scoresSet((oldArray) => [...oldArray, score]);
     scoreSet(0);
   };
+
   const sum = scores.reduce((a, b) => a + b, 0);
   const deleteScore = (i: number) => {
     scoresSet((prev) => prev.filter((el, index) => i !== index));
   };
+  useEffect(() => {
+    console.log('ASSSSS');
+    if (rawDataFromDb?.scores?.length > 0) scoresSet(rawDataFromDb.scores);
+  }, [rawDataFromDb]);
+  const updateDb = () => {
+    db.collection(player)
+      .get()
+      .then((res) => {
+        res.forEach((element) => {
+          element.ref.delete();
+        });
+      })
+      .then(() => {
+        db.collection(player)
+          .add({
+            scores: scores,
+          })
+          .catch((error) => {
+            console.error('Error adding document: ', error);
+          });
+      });
+  };
+  const getData = async () => {
+    console.log('ASD');
+    const events = await firebase.firestore().collection(player);
+    events.get().then((querySnapshot) => {
+      const tempDoc = querySnapshot.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
+      rawDataFromDbSet(tempDoc[0]);
+    });
+  };
+  useEffect(() => {
+    if (scores.length) {
+      updateDb();
+    }
+  }, [player, scores]);
+
   return (
     <Container>
+      <button onClick={getData}>Get data</button>
       <Text>
         <b>
           {player}
