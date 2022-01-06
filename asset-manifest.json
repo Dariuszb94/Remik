@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/Remik/static/css/main.66020f44.chunk.css",
-    "main.js": "/Remik/static/js/main.410e7724.chunk.js",
-    "main.js.map": "/Remik/static/js/main.410e7724.chunk.js.map",
+    "main.js": "/Remik/static/js/main.bb61e844.chunk.js",
+    "main.js.map": "/Remik/static/js/main.bb61e844.chunk.js.map",
     "runtime-main.js": "/Remik/static/js/runtime-main.ec2a90a7.js",
     "runtime-main.js.map": "/Remik/static/js/runtime-main.ec2a90a7.js.map",
-    "static/js/2.0975854c.chunk.js": "/Remik/static/js/2.0975854c.chunk.js",
-    "static/js/2.0975854c.chunk.js.map": "/Remik/static/js/2.0975854c.chunk.js.map",
+    "static/js/2.9bdc0d2d.chunk.js": "/Remik/static/js/2.9bdc0d2d.chunk.js",
+    "static/js/2.9bdc0d2d.chunk.js.map": "/Remik/static/js/2.9bdc0d2d.chunk.js.map",
     "index.html": "/Remik/index.html",
     "static/css/main.66020f44.chunk.css.map": "/Remik/static/css/main.66020f44.chunk.css.map",
-    "static/js/2.0975854c.chunk.js.LICENSE.txt": "/Remik/static/js/2.0975854c.chunk.js.LICENSE.txt"
+    "static/js/2.9bdc0d2d.chunk.js.LICENSE.txt": "/Remik/static/js/2.9bdc0d2d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ec2a90a7.js",
-    "static/js/2.0975854c.chunk.js",
+    "static/js/2.9bdc0d2d.chunk.js",
     "static/css/main.66020f44.chunk.css",
-    "static/js/main.410e7724.chunk.js"
+    "static/js/main.bb61e844.chunk.js"
   ]
 }
