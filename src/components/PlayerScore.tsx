@@ -62,7 +62,7 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
 
   return (
     <Container>
-      <SmallButton onClick={getData}>Pobierz</SmallButton>
+      <MediumButton onClick={getData}>Pobierz</MediumButton>
       <Text>
         <b>
           {player}
@@ -79,7 +79,9 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
           );
         })}
       </Scores>
-      <Text>Suma: {sum}</Text>
+      <Text>
+        <b>Suma: {sum}</b>
+      </Text>
       <SubmitContainer onSubmit={handleSubmit}>
         <Input
           type='number'
@@ -118,8 +120,23 @@ const Score = styled.div`
 const SmallButton = styled.button`
   border: none;
   outline: none;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 1.3;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(74, 74, 74);
+  font-weight: 400;
+  box-shadow: rgb(55 71 79 / 20%) 0px 0px 2px, rgb(0 0 0 / 10%) 0px 8px 12px;
+  max-width: 200px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  padding: 4px;
+`;
+const MediumButton = styled.button`
+  border: none;
+  outline: none;
+  font-size: 16px;
+  line-height: 1.3;
   text-align: center;
   cursor: pointer;
   color: rgb(74, 74, 74);
