@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Text } from './Setup';
 import db from '../firebase';
 import firebase from 'firebase';
-import { setTextRange } from 'typescript';
 
 type Props = {
   player: string;
@@ -25,7 +24,6 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
     scoresSet((prev) => prev.filter((el, index) => i !== index));
   };
   useEffect(() => {
-    console.log('ASSSSS');
     if (rawDataFromDb?.scores?.length > 0) scoresSet(rawDataFromDb.scores);
   }, [rawDataFromDb]);
   const updateDb = () => {
@@ -46,8 +44,8 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
           });
       });
   };
+
   const getData = async () => {
-    console.log('ASD');
     const events = await firebase.firestore().collection(player);
     events.get().then((querySnapshot) => {
       const tempDoc = querySnapshot.docs.map((doc) => {
