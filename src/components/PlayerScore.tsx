@@ -62,7 +62,6 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
 
   return (
     <Container>
-      <MediumButton onClick={getData}>Pobierz</MediumButton>
       <Text>
         <b>
           {player}
@@ -90,6 +89,7 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
         />
         <SmallButton type='submit'>+</SmallButton>
       </SubmitContainer>
+      <MediumButton onClick={getData}>Pobierz</MediumButton>
     </Container>
   );
 };
@@ -104,16 +104,20 @@ const Input = styled.input`
   margin-right: 8px;
   border-radius: 4px;
   text-align: center;
-  padding: 7px;
+  padding: 7px 2px;
 `;
 const Scores = styled.ul`
   margin: 4px 0;
+  max-height: 77vh;
+  overflow: scroll;
+  padding: 0;
 `;
 const FlexRow = styled.div<{ playersCount: number }>`
   display: flex;
   align-items: center;
   margin: 4px 0;
   justify-content: center;
+  padding: 0 12px;
 `;
 const Score = styled.div`
   margin-right: 4px;
@@ -148,7 +152,7 @@ const MediumButton = styled.button`
   background-color: rgb(255, 255, 255);
   border-radius: 4px;
   padding: 8px;
-  margin-bottom: 8px;
+  margin-top: 20px;
 `;
 const SubmitContainer = styled.form`
   display: flex;

@@ -29,7 +29,7 @@ function App() {
               <div key={id}>
                 <PlayerScore
                   player={player}
-                  playersCount={playersCount}
+                  playersCount={players.length}
                   index={index}
                 />
               </div>

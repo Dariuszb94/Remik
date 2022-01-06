@@ -1,6 +1,6 @@
-import React, { FC, useRef, useState } from "react";
-import range from "lodash/range";
-import styled from "styled-components";
+import React, { FC, useRef, useState } from 'react';
+import range from 'lodash/range';
+import styled from 'styled-components';
 
 type Props = {
   startSet: React.Dispatch<React.SetStateAction<boolean>>;
@@ -30,7 +30,9 @@ const Setup: FC<Props> = ({
         return (
           <Input
             key={i}
-            type="text"
+            type='text'
+            placeholder='Imię gracza'
+            maxLength={6}
             onChange={(e) =>
               playersSet((prevArr) => {
                 return Object.assign([], prevArr, { [el]: e.target.value });
@@ -39,7 +41,9 @@ const Setup: FC<Props> = ({
           />
         );
       })}
-      <Button onClick={() => startSet(true)}>Rozpocznij grę</Button>
+      {players.length > 1 && !players.includes('') ? (
+        <Button onClick={() => startSet(true)}>Rozpocznij grę</Button>
+      ) : null}
     </>
   );
 };
