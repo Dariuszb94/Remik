@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Text } from './Setup';
 import db from '../firebase';
 import firebase from 'firebase';
+import { v4 as uuidv4 } from 'uuid';
 
 type Props = {
   player: string;
@@ -58,6 +59,7 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
     if (scores.length) {
       updateDb();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [player, scores]);
 
   return (
@@ -71,7 +73,7 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
       <Scores>
         {scores.map((el, i) => {
           return (
-            <FlexRow playersCount={playersCount}>
+            <FlexRow playersCount={playersCount} key={uuidv4()}>
               <Score>{el}</Score>
               <SmallButton onClick={() => deleteScore(i)}>Usuń</SmallButton>
             </FlexRow>
