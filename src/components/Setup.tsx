@@ -109,10 +109,11 @@ export const Button = styled.button`
   margin: 0 4px;
 `;
 export const Text = styled.div`
-  font-size: 18px;
-  margin: 0 4px;
+  font-size: 16px;
+  margin: 0 1px;
   white-space: pre;
   text-align: center;
+  letter-spacing: -1px;
 `;
 const Container = styled.div`
   display: flex;
