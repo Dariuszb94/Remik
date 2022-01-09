@@ -24,6 +24,7 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
   const deleteScore = (i: number) => {
     scoresSet((prev) => prev.filter((el, index) => i !== index));
   };
+
   useEffect(() => {
     if (rawDataFromDb?.scores?.length > 0) scoresSet(rawDataFromDb.scores);
   }, [rawDataFromDb]);
@@ -61,7 +62,17 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [player, scores]);
-
+  useEffect(() => {
+    if (sum >= 1000) {
+      db.collection('rundy')
+        .add({
+          liczbaRund: scores.length,
+        })
+        .catch((error) => {
+          console.error('Error adding document: ', error);
+        });
+    }
+  }, [scores]);
   return (
     <Container>
       <Text>
