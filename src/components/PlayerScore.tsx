@@ -110,7 +110,7 @@ const Input = styled.input`
 `;
 const Scores = styled.ul`
   margin: 4px 0;
-  max-height: 77vh;
+  max-height: 72vh;
   overflow: scroll;
   padding: 0;
 `;
