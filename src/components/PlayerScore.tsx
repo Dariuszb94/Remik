@@ -104,9 +104,9 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
           );
         })}
       </Scores>
-      <Text>
-        <b>Suma: {sum}</b>
-      </Text>
+      <Sum>
+        <b>Σ: {sum}</b>
+      </Sum>
       <SubmitContainer onSubmit={handleSubmit}>
         <Input
           type='number'
@@ -137,6 +137,13 @@ const Scores = styled.ul`
   max-height: 72vh;
   overflow: scroll;
   padding: 0;
+`;
+export const Sum = styled.div`
+  font-size: 28px;
+  margin: 0 1px;
+  white-space: pre;
+  text-align: center;
+  letter-spacing: -1px;
 `;
 const FlexRow = styled.div<{ playersCount: number }>`
   display: flex;
