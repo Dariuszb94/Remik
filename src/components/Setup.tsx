@@ -109,7 +109,7 @@ export const Button = styled.button`
   margin: 0 4px;
 `;
 export const Text = styled.div`
-  font-size: 16px;
+  font-size: 17px;
   margin: 0 1px;
   white-space: pre;
   text-align: center;
