@@ -72,7 +72,7 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
           console.error('Error adding document: ', error);
         });
     }
-  }, [scores]);
+  }, [scores, sum]);
   return (
     <Container>
       <Text>
