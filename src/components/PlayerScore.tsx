@@ -151,6 +151,10 @@ const FlexRow = styled.div<{ playersCount: number }>`
   margin: 4px 0;
   justify-content: center;
   padding-right: 9px;
+  &:nth-child(${(props) => props.playersCount}n+1) {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  border-radius: 4px;
 `;
 const Score = styled.div`
   margin-right: 4px;
