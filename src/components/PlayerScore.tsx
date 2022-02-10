@@ -60,8 +60,7 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
     if (scores.length) {
       updateDb();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [player, scores]);
+  }, [player, scores, updateDb]);
   useEffect(() => {
     if (sum >= 1000) {
       db.collection('rundy')
