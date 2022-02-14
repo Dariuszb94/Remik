@@ -20,6 +20,7 @@ type Props = {
   playersCount: number;
   index: number;
 };
+
 const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
   const [scores, scoresSet] = useState<number[]>([]);
   const [score, scoreSet] = useState(0);
