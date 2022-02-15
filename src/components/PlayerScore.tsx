@@ -126,6 +126,7 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
         <SmallButton type='submit'>+</SmallButton>
       </SubmitContainer>
       <MediumButton onClick={getData}>Pobierz</MediumButton>
+      <MediumButton>Wyślij</MediumButton>
     </Container>
   );
 };
