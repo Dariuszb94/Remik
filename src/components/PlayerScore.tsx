@@ -115,7 +115,7 @@ const PlayerScore: FC<Props> = ({ player, playersCount, index }) => {
         })}
       </Scores>
       <Sum>
-        <b>Σ: {sum}</b>
+        <b>Σ:{sum}</b>
       </Sum>
       <SubmitContainer onSubmit={handleSubmit}>
         <Input
