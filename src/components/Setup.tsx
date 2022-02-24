@@ -127,4 +127,5 @@ export const Input = styled.input`
   box-shadow: rgb(55 71 79 / 20%) 0px 0px 2px, rgb(0 0 0 / 10%) 0px 8px 12px;
   font-size: 20px;
   padding: 4px;
+  background: transparent;
 `;
